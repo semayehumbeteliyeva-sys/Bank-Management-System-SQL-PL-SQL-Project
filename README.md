@@ -5,8 +5,8 @@ A relational database project developed using Oracle SQL and PL/SQL to manage cu
 The database consists of the following main entities:
 -CUSTOMERS -customer information
 -BRANCHES-bank branch information
--LOANS-loan information,linked to `customers` and `branches`via foreign keys
--PAYMENTS-monthly payment records,linked to `loans` via foreign key
+-LOANS-loan information, linked to `customers` and `branches` via foreign keys
+-PAYMENTS-monthly payment records, linked to `loans` via foreign key
 -LOANS_AUDIT-audit trail for loan closures,automatically populated via trigger
 ## ER Diagram
 <img width="886" height="1059" alt="bank_loan_er_diagram" src="https://github.com/user-attachments/assets/1a7a03ca-6818-4df5-bf5a-87c5a4028b4f" />
