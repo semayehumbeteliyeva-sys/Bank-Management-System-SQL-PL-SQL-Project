@@ -1,11 +1,12 @@
 -- Audit log table for tracking loan closures
 create table loans_audit(
 audit_id number generated as identity constraint pk_audit_id primary key,
-loan_id number,
-action_type varchar2(10),
+loan_id number not null,
+action_type varchar2(10) not null,
 old_close_date date,
 new_close_date date,
-action_date date default sysdate
+action_date date default sysdate not null,
+constraint ch_audit_action check (action_type in ('INSERT','UPDATE','DELETE'))
 );
 
 -- Trigger: automatically logs when a loan's close_date changes
