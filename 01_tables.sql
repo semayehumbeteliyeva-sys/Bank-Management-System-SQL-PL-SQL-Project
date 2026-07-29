@@ -28,8 +28,8 @@ references branches (branch_id);
 -- Loans Table(references customers and branches)
 create table loans(
 loan_id number generated as identity constraint pk_loan_id primary key,
-customer_id number references customers(customer_id),
-branch_id number references branches(branch_id),
+customer_id number not null references customers(customer_id),
+branch_id number not null references branches(branch_id),
 loan_type varchar2(50) not null,
 loan_amount number not null,
 interest_rate number(5,2) not null,
@@ -52,6 +52,8 @@ interest_amount NUMBER NOT NULL,
 status VARCHAR2(20) DEFAULT 'PAID' NOT NULL,
 CONSTRAINT fk_payment_loan FOREIGN KEY (loan_id) REFERENCES loans(loan_id),
 CONSTRAINT ch_payment_amount CHECK(payment_amount>0),
+CONSTRAINT ch_interest_amount check(interest_amount>=0),
+CONSTRAINT ch_principal_amount check (principal_amount>0),
 CONSTRAINT ch_payment_status CHECK(status IN ('PAID','LATE','MISSED'))
 );
 
