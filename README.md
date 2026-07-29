@@ -22,11 +22,11 @@ bank-sql-project/
 ```
 ## Database Structure
 The database consists of the following main entities:
--CUSTOMERS -customer information
--BRANCHES-bank branch information
--LOANS-loan information, linked to `customers` and `branches` via foreign keys
--PAYMENTS-monthly payment records, linked to `loans` via foreign key
--LOANS_AUDIT-audit trail for loan closures,automatically populated via trigger
+-**CUSTOMERS** - stores customer information
+-**BRANCHES**- stores bank branch information
+-**LOANS**- stores loan information, linked to `customers` and `branches` via foreign keys
+-**PAYMENTS**-stores monthly loan payment records, linked to `loans` via foreign key
+-**LOANS_AUDIT**-stores audit trail for loan closures,automatically populated via trigger
 ## Database Relationships
 -One customer can have multiple loans (1:N)
 -One branch can process multiple loans(1:N)
